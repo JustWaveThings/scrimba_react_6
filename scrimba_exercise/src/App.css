@@ -1,0 +1,63 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+}
+
+.App {
+	font-family: 'Inter', sans-serif;
+	display: flex;
+	flex-direction: column;
+	height: 100svb;
+}
+
+.Navbar {
+	display: flex;
+	align-items: center;
+	background-color: #21222a;
+	height: 91px;
+	flex-grow: 0;
+}
+
+.Navbar > img {
+	margin-left: 26px;
+	margin-right: 5px;
+}
+
+.Navbar > h2 {
+	margin-right: auto;
+	font-weight: 700;
+	color: #61dafb;
+}
+
+.Navbar > h3 {
+	color: #deebf8;
+	font-weight: 400;
+	margin-right: 27px;
+}
+
+.main {
+	background-color: #282d35;
+	color: #ffffff;
+	flex-grow: 1;
+}
+
+.title {
+	font-weight: 700;
+}
+
+.facts > li {
+	margin-top: 20px;
+}
+
+.facts > li::marker {
+	font-size: 1.4rem;
+	color: #61dafb;
+}
+
+.factContainer {
+	margin-left: 27px;
+}
