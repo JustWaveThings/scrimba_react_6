@@ -8,7 +8,7 @@ body {
 }
 
 .App {
-	font-family: 'Inter', sans-serif;
+	font-family: 'Karla', sans-serif;
 	display: flex;
 	flex-direction: column;
 	height: 100svb;
@@ -17,9 +17,10 @@ body {
 .Navbar {
 	display: flex;
 	align-items: center;
-	background-color: #21222a;
+	background: linear-gradient(90deg, #672280, #a626d3);
 	height: 91px;
 	flex-grow: 0;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5), 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
 .Navbar > img {
@@ -30,34 +31,76 @@ body {
 .Navbar > h2 {
 	margin-right: auto;
 	font-weight: 700;
-	color: #61dafb;
+	color: #ffffff;
 }
 
 .Navbar > h3 {
-	color: #deebf8;
+	color: #ffffff;
 	font-weight: 400;
 	margin-right: 27px;
 }
 
 .main {
-	background-color: #282d35;
+	background-color: #E5E5E5
 	color: #ffffff;
-	flex-grow: 1;
+	padding: 36px;
 }
 
-.title {
-	font-weight: 700;
+.form{
+	display: grid;
+	grid-template: 40px 40px / 1fr 1fr;
+	gap: 17px;
+	font-family: 'Karla', sans-serif;
 }
 
-.facts > li {
-	margin-top: 20px;
+.form--input {
+	font-family: 'Karla', sans-serif;
+	border-radius: 5px;
 }
 
-.facts > li::marker {
-	font-size: 1.4rem;
-	color: #61dafb;
+
+.getMemeButton {
+	grid-column: 1 / -1;
+	background: linear-gradient(90deg, #672280, #a626d3);
+	color: #ffffff;
+	border-radius: 5px;
+	font-size: 1rem;
+	cursor: pointer;
 }
 
-.factContainer {
-	margin-left: 27px;
+.getMemeButton:hover{
+	filter: brightness(80%);
 }
+
+.memeImg {
+	padding-top: 36px;
+	position: relative;
+	z-index: -1;
+	display: flex;
+	justify-content: center;
+}
+
+.meme--text{
+	text-transform: uppercase;
+	letter-spacing: .03rem;
+	position: absolute;
+	left: 50%;
+	transform: translateX( -50%);
+	color: #ffffff;
+	font-family: 'IBM Plex Sans', sans-serif;
+	font-size: 2.5rem;
+	text-shadow:
+    -2px -2px 0 #000, /* top left */
+    2px -2px 0 #000, /* top right */
+    -2px 2px 0 #000, /* bottom left */
+    2px 2px 0 #000; /* bottom right */
+}
+
+.top{
+	top: 2%;
+}
+
+.bottom{
+	bottom: 2%;
+}
+
