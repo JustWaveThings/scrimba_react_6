@@ -1,6 +1,5 @@
 import memeData from '../memeData.js';
 import React from 'react';
-import DisplayText from './DisplayText';
 
 function Meme() {
 	const [meme, setMeme] = React.useState({
@@ -9,14 +8,22 @@ function Meme() {
 		randomImage: 'http://i.imgflip.com/1bij.jpg',
 	});
 
-	const [allMemeImages, setAllMemeImages] = React.useState(memeData);
+	const [buttonCount, setButtonCount] = React.useState(0);
+
+	React.useEffect(() => {
+		console.log('effect ran');
+		fetch('https://api.imgflip.com/get_memes')
+			.then(res => res.json())
+			.then(data => setAllMemes(data));
+	}, [buttonCount % 100 === 0]);
+
+	const [allMemes, setAllMemes] = React.useState(memeData);
 
 	function getRandomMeme(e) {
 		e.preventDefault();
-		const randomNumber = Math.round(
-			Math.random() * allMemeImages.data.memes.length
-		);
-		const randomMeme = allMemeImages.data.memes[randomNumber];
+		handleButtonClick();
+		const randomNumber = Math.round(Math.random() * allMemes.data.memes.length);
+		const randomMeme = allMemes.data.memes[randomNumber];
 		const url = randomMeme.url;
 		setMeme(prevState => ({
 			...prevState,
@@ -25,7 +32,6 @@ function Meme() {
 	}
 
 	function handleChange(event) {
-		console.log(meme.topText, meme.bottomText);
 		const { name, value } = event.target;
 		setMeme(prevState => {
 			return {
@@ -35,13 +41,16 @@ function Meme() {
 		});
 	}
 
-	function handleSubmit() {}
+	function handleButtonClick() {
+		setButtonCount(prevState => prevState + 1);
+		console.log(buttonCount);
+	}
 
 	return (
 		<main>
 			<form
 				className="form"
-				onSubmit={handleSubmit}
+				onSubmit={handleButtonClick}
 			>
 				<input
 					type="text"
